@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Desa Ngroto - Etalase Alam, Budaya, Wisata & UMKM | Kec. Reban, Batang</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        desa: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        earth: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animasi halus untuk transisi modal dan filter */
+        .fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Pola latar belakang tipis untuk hero */
+        .hero-pattern {
+            background-color: #14532d;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-earth-50 text-earth-800 antialiased selection:bg-desa-600 selection:text-white">
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-earth-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Nama Desa -->
+                <a href="#beranda" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-desa-600 to-desa-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-mountain-sun text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-lg sm:text-xl text-desa-900 tracking-tight block leading-none">PESONA NGROTO</span>
+                        <span class="text-xs font-medium text-earth-700 tracking-wider uppercase">Kaki Gunung Kamulyan • Reban • Batang</span>
+                    </div>
+                </a>
+
+                <!-- Menu Navigasi Desktop -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#beranda" class="px-3.5 py-2 rounded-lg text-sm font-medium text-earth-700 hover:text-desa-700 hover:bg-desa-50 transition">Beranda</a>
+                    <a href="#tentang" class="px-3.5 py-2 rounded-lg text-sm font-medium text-earth-700 hover:text-desa-700 hover:bg-desa-50 transition">Tentang Desa</a>
+                    <a href="#potensi" class="px-3.5 py-2 rounded-lg text-sm font-medium text-earth-700 hover:text-desa-700 hover:bg-desa-50 transition">Alam & Budaya</a>
+                    <a href="#umkm" class="px-3.5 py-2 rounded-lg text-sm font-medium text-earth-700 hover:text-desa-700 hover:bg-desa-50 transition">UMKM Lokal</a>
+                    <a href="#kegiatan" class="px-3.5 py-2 rounded-lg text-sm font-medium text-earth-700 hover:text-desa-700 hover:bg-desa-50 transition">Kegiatan Warga</a>
+                    <a href="#galeri" class="px-3.5 py-2 rounded-lg text-sm font-medium text-earth-700 hover:text-desa-700 hover:bg-desa-50 transition">Galeri</a>
+                    <a href="#inisiator" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-amber-500 text-earth-900 hover:bg-amber-400 shadow-sm transition">Tentang Pembuat</a>
+                </nav>
+
+                <!-- Tombol Hamburger Mobile -->
+                <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-xl text-earth-700 hover:bg-earth-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Navigasi Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-earth-200 px-4 pt-2 pb-5 space-y-1 shadow-lg">
+            <a href="#beranda" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-earth-800 hover:bg-desa-50 hover:text-desa-700">Beranda</a>
+            <a href="#tentang" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-earth-800 hover:bg-desa-50 hover:text-desa-700">Tentang Desa Ngroto</a>
+            <a href="#potensi" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-earth-800 hover:bg-desa-50 hover:text-desa-700">Pertanian, Wisata & Budaya</a>
+            <a href="#umkm" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-earth-800 hover:bg-desa-50 hover:text-desa-700">Etalase UMKM Lokal</a>
+            <a href="#kegiatan" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-earth-800 hover:bg-desa-50 hover:text-desa-700">Kegiatan Masyarakat</a>
+            <a href="#galeri" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-earth-800 hover:bg-desa-50 hover:text-desa-700">Galeri Pesona</a>
+            <a href="#inisiator" class="mobile-link block px-4 py-3 mt-2 rounded-xl text-base font-bold bg-amber-500 text-earth-900 text-center">Inisiator Website (Zaenal Arifin)</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 hero-pattern text-white overflow-hidden">
+        <!-- Gambar Latar Belakang dengan Overlay Gelap -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80" 
+                 onerror="this.src='https://placehold.co/1920x1080/14532d/ffffff?text=Pesona+Alam+Desa+Ngroto'"
+                 alt="Pemandangan Alam dan Pertanian Desa Ngroto" 
+                 class="w-full h-full object-cover opacity-35 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-t from-desa-900 via-desa-900/75 to-desa-900/55"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-desa-100 text-xs sm:text-sm font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                    <span>Kaki Gunung Kamulyan (±915 MDPL) • Desa Ngroto, Reban, Batang</span>
+                </div>
+                <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-tight tracking-tight mb-6">
+                    Pesona Alam, Warisan Budaya, dan Karya <span class="text-amber-300">Desa Ngroto</span>
+                </h1>
+                <p class="text-base sm:text-lg text-desa-100/90 leading-relaxed mb-8 max-w-2xl">
+                    Mengenal lebih dekat kekayaan tanah subur di kaki Gunung Kamulyan (±915 MDPL) dengan komoditas tembakau, kopi, teh, dan cabai unggulan, pesona wisata alam yang sejuk, kelestarian kesenian tradisional, hingga produk UMKM karya warga Dukuh Ampelgading, Dukuh Ngroto, dan Dukuh Gerjo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#potensi" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-earth-900 font-bold text-sm sm:text-base shadow-lg transition transform hover:-translate-y-0.5">
+                        <span>Jelajahi Alam & Budaya</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#umkm" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-semibold text-sm sm:text-base transition">
+                        <i class="fa-solid fa-store text-amber-300"></i>
+                        <span>Lihat Produk UMKM Lokal</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sorotan Kekayaan Desa Ngroto -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 pt-8 border-t border-white/15">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10">
+                    <div class="text-amber-300 text-xl sm:text-2xl font-heading font-extrabold flex items-center gap-2">
+                        <i class="fa-solid fa-seedling text-lg"></i> Kebun & Ladang
+                    </div>
+                    <div class="text-xs sm:text-sm text-desa-100 mt-1">Tembakau, Kopi, Teh & Cabai</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10">
+                    <div class="text-amber-300 text-xl sm:text-2xl font-heading font-extrabold flex items-center gap-2">
+                        <i class="fa-solid fa-mountain-sun text-lg"></i> ±915 MDPL
+                    </div>
+                    <div class="text-xs sm:text-sm text-desa-100 mt-1">Kaki Gunung Kamulyan Sejuk</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10">
+                    <div class="text-amber-300 text-xl sm:text-2xl font-heading font-extrabold flex items-center gap-2">
+                        <i class="fa-solid fa-masks-theater text-lg"></i> Seni & Budaya
+                    </div>
+                    <div class="text-xs sm:text-sm text-desa-100 mt-1">Tradisi Jawa & Sanggar Warga</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10">
+                    <div class="text-amber-300 text-xl sm:text-2xl font-heading font-extrabold flex items-center gap-2">
+                        <i class="fa-solid fa-people-group text-lg"></i> 3 Dukuh Bersatu
+                    </div>
+                    <div class="text-xs sm:text-sm text-desa-100 mt-1">4 RW • 14 RT Guyub Rukun</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG DESA & KEHARMONISAN 3 DUKUH -->
+    <section id="tentang" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <!-- Kolom Kiri: Cerita & Karakteristik Desa -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-desa-700 font-bold text-sm uppercase tracking-wider">Profil & Cerita Kampung Halaman</span>
+                        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-earth-900 mt-2 leading-tight">
+                            Alam Subur di Kaki Gunung Kamulyan, Budaya yang Lestari
+                        </h2>
+                    </div>
+                    <p class="text-earth-700 leading-relaxed">
+                        <strong>Desa Ngroto</strong> adalah salah satu desa yang berada di kaki <strong>Gunung Kamulyan</strong> dengan ketinggian kurang lebih <strong>915 MDPL</strong>, masuk dalam wilayah <strong>Kecamatan Reban, Kabupaten Batang, Provinsi Jawa Tengah (Kode Pos 51273)</strong>. Letaknya di dataran tinggi menjadikan desa ini berhawa sejuk, kaya sumber mata air jernih, serta memiliki tanah yang sangat subur untuk pertanian dan perkebunan rakyat.
+                    </p>
+                    <p class="text-earth-700 leading-relaxed">
+                        Kehidupan masyarakatnya terjalin erat dalam semangat gotong royong lintas tiga wilayah dukuh—yakni <strong>Dukuh Ampelgading</strong>, <strong>Dukuh Ngroto</strong>, dan <strong>Dukuh Gerjo</strong> (terdiri atas <strong>4 RW dan 14 RT</strong>). Dari hamparan perkebunan <strong>tembakau, kopi, teh, hingga cabai</strong> serta sayuran pegunungan, warga terus berkarya menjaga warisan leluhur sekaligus mengembangkan produk UMKM lokal.
+                    </p>
+
+                    <!-- Sorotan 3 Pilar Kehidupan Warga -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+                        <div class="bg-desa-50 border border-desa-200/80 rounded-2xl p-4">
+                            <i class="fa-solid fa-leaf text-desa-700 text-xl mb-2"></i>
+                            <h3 class="font-heading font-bold text-sm text-desa-900">Lumbung Bumi</h3>
+                            <p class="text-xs text-earth-600 mt-1">Tembakau, kopi, teh, cabai, padi & sayuran dataran tinggi.</p>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-4">
+                            <i class="fa-solid fa-drum text-amber-700 text-xl mb-2"></i>
+                            <h3 class="font-heading font-bold text-sm text-earth-900">Nafas Budaya</h3>
+                            <p class="text-xs text-earth-600 mt-1">Kesenian tradisional dan tradisi sedekah bumi yang hidup.</p>
+                        </div>
+                        <div class="bg-sky-50 border border-sky-200/80 rounded-2xl p-4">
+                            <i class="fa-solid fa-hand-holding-heart text-sky-700 text-xl mb-2"></i>
+                            <h3 class="font-heading font-bold text-sm text-earth-900">Kreativitas UMKM</h3>
+                            <p class="text-xs text-earth-600 mt-1">Olahan pangan lokal dan kerajinan tangan warga desa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Kartu 3 Dukuh & Lokasi -->
+                <div class="lg:col-span-6 space-y-5">
+                    <div class="bg-earth-50 border border-earth-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                        <div class="flex items-center justify-between mb-5">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-desa-700">Peta Wilayah & Komunitas</span>
+                                <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-earth-900 mt-1">Tiga Dukuh di Desa Ngroto</h3>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Desa+Ngroto+Kecamatan+Reban+Kabupaten+Batang+Jawa+Tengah+51273" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-desa-50 text-desa-700 border border-earth-200 text-xs font-bold shadow-sm transition">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <span>Lihat Peta</span>
+                            </a>
+                        </div>
+
+                        <div class="space-y-3 mb-6">
+                            <!-- Dukuh 1 -->
+                            <div class="bg-white p-4 rounded-2xl border border-earth-200 hover:border-desa-500 transition flex items-start gap-3.5">
+                                <span class="w-9 h-9 rounded-xl bg-desa-700 text-white font-heading font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">01</span>
+                                <div>
+                                    <h4 class="font-heading font-bold text-earth-900">Dukuh Ampelgading</h4>
+                                    <p class="text-xs text-earth-600 mt-0.5 leading-relaxed">Kawasan hunian dan lahan pertanian produktif penghasil padi, cabai, dan sayuran segar dengan aktivitas kelompok tani yang kuat.</p>
+                                </div>
+                            </div>
+
+                            <!-- Dukuh 2 -->
+                            <div class="bg-white p-4 rounded-2xl border border-earth-200 hover:border-desa-500 transition flex items-start gap-3.5">
+                                <span class="w-9 h-9 rounded-xl bg-desa-700 text-white font-heading font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">02</span>
+                                <div>
+                                    <h4 class="font-heading font-bold text-earth-900">Dukuh Ngroto</h4>
+                                    <p class="text-xs text-earth-600 mt-0.5 leading-relaxed">Jantung aktivitas sosial desa, pusat kegiatan pemuda, sanggar seni budaya, serta sentra pengolahan hasil kebun dan UMKM warga.</p>
+                                </div>
+                            </div>
+
+                            <!-- Dukuh 3 -->
+                            <div class="bg-white p-4 rounded-2xl border border-earth-200 hover:border-desa-500 transition flex items-start gap-3.5">
+                                <span class="w-9 h-9 rounded-xl bg-desa-700 text-white font-heading font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">03</span>
+                                <div>
+                                    <h4 class="font-heading font-bold text-earth-900">Dukuh Gerjo</h4>
+                                    <p class="text-xs text-earth-600 mt-0.5 leading-relaxed">Wilayah lereng sejuk yang kaya akan perkebunan tembakau, kopi, teh, serta panorama hijau kaki Gunung Kamulyan.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Geografis Singkat -->
+                        <div class="bg-desa-800 text-white rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-mountain text-xl text-amber-300"></i>
+                                <div>
+                                    <div class="text-xs text-desa-200">Kaki Gunung Kamulyan (±915 MDPL)</div>
+                                    <div class="font-heading font-bold text-sm sm:text-base">Kec. Reban, Kab. Batang, Jateng 51273</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-white/15 px-3 py-1.5 rounded-lg font-bold text-amber-200">4 RW • 14 RT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POTENSI UNGGULAN DESA (PERTANIAN, PERKEBUNAN, WISATA ALAM, KESENIAN & BUDAYA) -->
+    <section id="potensi" class="py-16 lg:py-24 bg-earth-100/70 border-y border-earth-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-desa-700 font-bold text-sm uppercase tracking-wider">Kekayaan Alam & Kearifan Lokal</span>
+                <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-earth-900 mt-2">
+                    Potensi Unggulan Desa Ngroto
+                </h2>
+                <p class="text-earth-700 mt-3 text-sm sm:text-base">
+                    Empat pilar kebanggaan Desa Ngroto yang memadukan kesuburan alam kaki Gunung Kamulyan (±915 MDPL) dengan kelestarian budaya masyarakat. Klik kartu untuk menjelajahi detailnya.
+                </p>
+            </div>
+
+            <!-- Filter Kategori Potensi -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="potensi-filters">
+                <button data-filter="semua" class="potensi-btn active px-5 py-2.5 rounded-xl text-sm font-semibold bg-desa-700 text-white shadow-sm transition">
+                    Semua Potensi
+                </button>
+                <button data-filter="perkebunan" class="potensi-btn px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-earth-700 hover:bg-desa-50 border border-earth-200 transition">
+                    <i class="fa-solid fa-tree mr-1.5 text-emerald-700"></i>Perkebunan
+                </button>
+                <button data-filter="pertanian" class="potensi-btn px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-earth-700 hover:bg-desa-50 border border-earth-200 transition">
+                    <i class="fa-solid fa-seedling mr-1.5 text-desa-600"></i>Pertanian & Cabai
+                </button>
+                <button data-filter="wisata" class="potensi-btn px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-earth-700 hover:bg-desa-50 border border-earth-200 transition">
+                    <i class="fa-solid fa-mountain-sun mr-1.5 text-sky-600"></i>Wisata Alam
+                </button>
+                <button data-filter="kesenian" class="potensi-btn px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-earth-700 hover:bg-desa-50 border border-earth-200 transition">
+                    <i class="fa-solid fa-masks-theater mr-1.5 text-amber-600"></i>Budaya & Kesenian
+                </button>
+            </div>
+
+            <!-- Grid Kartu Potensi -->
+            <div id="potensi-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Kartu akan dirender secara dinamis oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ETALASE UMKM & PRODUK LOKAL DESA -->
+    <section id="umkm" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-amber-600 font-bold text-sm uppercase tracking-wider">Dukung Ekonomi Warga</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-earth-900 mt-2">
+                        Etalase UMKM & Produk Lokal Ngroto
+                    </h2>
+                    <p class="text-earth-700 mt-2 text-sm sm:text-base max-w-2xl">
+                        Ragam komoditas perkebunan dan olahan hasil bumi seperti tembakau, kopi, teh, cabai segar, camilan tradisional, hingga kerajinan tangan asli buatan warga Dukuh Ampelgading, Ngroto, dan Gerjo.
+                    </p>
+                </div>
+
+                <!-- Filter Kategori UMKM -->
+                <div class="flex flex-wrap gap-2" id="umkm-filters">
+                    <button data-umkm="semua" class="umkm-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-amber-500 text-earth-900 shadow-sm transition">
+                        Semua Produk
+                    </button>
+                    <button data-umkm="Perkebunan & Hasil Bumi" class="umkm-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-earth-100 text-earth-700 hover:bg-amber-50 transition">
+                        Perkebunan & Hasil Bumi
+                    </button>
+                    <button data-umkm="Kuliner & Olahan" class="umkm-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-earth-100 text-earth-700 hover:bg-amber-50 transition">
+                        Kuliner & Olahan
+                    </button>
+                    <button data-umkm="Kerajinan & Jasa" class="umkm-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-earth-100 text-earth-700 hover:bg-amber-50 transition">
+                        Kerajinan & Jasa
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid Kartu UMKM -->
+            <div id="umkm-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dirender secara dinamis oleh JS -->
+            </div>
+
+            <!-- Banner Ajakan Daftarkan UMKM Warga -->
+            <div class="mt-10 bg-gradient-to-r from-desa-800 to-desa-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+                <div class="flex items-start sm:items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-400 text-earth-900 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-shop"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl">Punya Usaha atau Hasil Kebun di Desa Ngroto?</h3>
+                        <p class="text-xs sm:text-sm text-desa-100 mt-1">
+                            Mari tampilkan hasil panen tembakau, kopi, teh, cabai, kuliner, maupun kerajinan Anda di etalase digital ini secara gratis agar dikenal lebih banyak pembeli!
+                        </p>
+                    </div>
+                </div>
+                <a href="https://wa.me/6282328717060?text=Halo%20Mas%20Zaenal,%20saya%20warga%20Desa%20Ngroto%20ingin%20mendaftarkan%20produk%20UMKM/hasil%20kebun%20saya%20di%20website%20desa." 
+                   target="_blank" rel="noopener noreferrer"
+                   class="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-earth-900 font-bold text-sm shadow transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Daftarkan UMKM Gratis</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEGIATAN & AGENDA MASYARAKAT -->
+    <section id="kegiatan" class="py-16 lg:py-24 bg-earth-50 border-t border-earth-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-desa-700 font-bold text-sm uppercase tracking-wider">Denyut Kehidupan Warga</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-earth-900 mt-2">
+                        Kegiatan & Agenda Masyarakat
+                    </h2>
+                    <p class="text-earth-700 mt-2 text-sm sm:text-base max-w-2xl">
+                        Ragam aktivitas kebersamaan warga mulai dari gotong royong dusun, panen tembakau, kopi, teh & cabai, latihan kesenian, keagamaan, hingga kegiatan pemuda Desa Ngroto.
+                    </p>
+                </div>
+
+                <!-- Pencarian & Filter Agenda -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <div class="relative flex-1 sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-earth-400 text-sm"></i>
+                        <input type="text" id="search-kegiatan" placeholder="Cari kegiatan atau dukuh..." 
+                               class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-earth-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-desa-600 focus:border-transparent">
+                    </div>
+                    <select id="filter-kategori-kegiatan" class="px-4 py-2.5 rounded-xl border border-earth-300 text-sm bg-white text-earth-800 font-medium focus:outline-none focus:ring-2 focus:ring-desa-600">
+                        <option value="semua">Semua Kategori</option>
+                        <option value="Pertanian & Kebun">Pertanian & Kebun</option>
+                        <option value="Budaya & Kesenian">Budaya & Kesenian</option>
+                        <option value="Keagamaan">Keagamaan</option>
+                        <option value="Gotong Royong">Gotong Royong</option>
+                        <option value="Pemuda & Wisata">Pemuda & Wisata</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Daftar Kartu Kegiatan -->
+            <div id="kegiatan-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dirender via JS -->
+            </div>
+
+            <!-- Pesan jika tidak ditemukan -->
+            <div id="kegiatan-empty" class="hidden text-center py-12 bg-white rounded-2xl border border-earth-200">
+                <i class="fa-regular fa-folder-open text-4xl text-earth-400 mb-3"></i>
+                <p class="font-heading font-bold text-earth-800">Kegiatan tidak ditemukan</p>
+                <p class="text-sm text-earth-600 mt-1">Coba gunakan kata kunci pencarian atau kategori lain.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI PESONA NGROTO -->
+    <section id="galeri" class="py-16 lg:py-24 bg-earth-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-amber-400 font-bold text-sm uppercase tracking-wider">Dokumentasi Visual</span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl mt-2">
+                        Galeri Pesona Desa Ngroto
+                    </h2>
+                </div>
+                <p class="text-earth-300 text-sm max-w-md">
+                    Potret keindahan alam kaki Gunung Kamulyan (±915 MDPL), hasil panen tembakau, kopi, teh & cabai, pentas budaya, serta kebersamaan di Dukuh Ampelgading, Ngroto, dan Gerjo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Item Galeri 1 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-earth-800">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/800x600/166534/ffffff?text=Hamparan+Kebun+%26+Pertanian'"
+                         alt="Hamparan Lahan Pertanian Desa Ngroto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-xs font-semibold text-amber-300 uppercase">Perkebunan & Ladang</span>
+                        <h3 class="font-heading font-bold text-lg">Hamparan Hijau Kaki Gunung Kamulyan</h3>
+                    </div>
+                </div>
+
+                <!-- Item Galeri 2 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-earth-800">
+                    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/800x600/15803d/ffffff?text=Panorama+915+MDPL+Reban'"
+                         alt="Suasana Sejuk Wisata Alam Desa Ngroto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-xs font-semibold text-sky-300 uppercase">Wisata Alam (±915 MDPL)</span>
+                        <h3 class="font-heading font-bold text-lg">Panorama Perbukitan & Udara Sejuk Reban</h3>
+                    </div>
+                </div>
+
+                <!-- Item Galeri 3 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-earth-800">
+                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/800x600/14532d/ffffff?text=Tembakau%2C+Kopi%2C+Teh+%26+Cabai'"
+                         alt="Hasil Perkebunan Rakyat Desa Ngroto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-xs font-semibold text-emerald-300 uppercase">Perkebunan Unggulan</span>
+                        <h3 class="font-heading font-bold text-lg">Komoditas Tembakau, Kopi, Teh & Rempah</h3>
+                    </div>
+                </div>
+
+                <!-- Item Galeri 4 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-earth-800">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/800x600/78350f/ffffff?text=Pentas+Kesenian+Tradisional'"
+                         alt="Pentas Kesenian Daerah Desa Ngroto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-xs font-semibold text-amber-300 uppercase">Kesenian & Budaya</span>
+                        <h3 class="font-heading font-bold text-lg">Pelestarian Kesenian Tradisional Jawa</h3>
+                    </div>
+                </div>
+
+                <!-- Item Galeri 5 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-earth-800">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/800x600/166534/ffffff?text=Gotong+Royong+Warga+Desa'"
+                         alt="Gotong Royong Warga 3 Dukuh" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-xs font-semibold text-desa-300 uppercase">Kebersamaan (4 RW / 14 RT)</span>
+                        <h3 class="font-heading font-bold text-lg">Gotong Royong Dukuh Ampelgading, Ngroto & Gerjo</h3>
+                    </div>
+                </div>
+
+                <!-- Item Galeri 6 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-earth-800">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80" 
+                         onerror="this.src='https://placehold.co/800x600/15803d/ffffff?text=Panen+Cabai+%26+Sayuran+Segar'"
+                         alt="Panen Hasil Bumi Desa Ngroto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-xs font-semibold text-amber-300 uppercase">Hasil Bumi & UMKM</span>
+                        <h3 class="font-heading font-bold text-lg">Panen Cabai & Sayuran Pegunungan Segar</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INISIATOR & PEMBUAT WEBSITE (ZAENAL ARIFIN) -->
+    <section id="inisiator" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-earth-50 via-white to-desa-50/70 rounded-3xl border border-desa-200/80 shadow-md p-6 sm:p-10 lg:p-12 relative overflow-hidden">
+                <!-- Dekorasi Latar Belakang Halus -->
+                <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-desa-100/60 blur-2xl pointer-events-none"></div>
+                <div class="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-amber-100/50 blur-2xl pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                    <!-- Kolom Kiri: Kartu Identitas Pemuda Desa -->
+                    <div class="lg:col-span-4 flex flex-col items-center text-center bg-white rounded-2xl p-6 sm:p-7 border border-earth-200/90 shadow-sm">
+                        <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-desa-600 to-desa-800 text-white flex items-center justify-center shadow-md mb-4 relative">
+                            <span class="font-heading font-extrabold text-3xl tracking-tight">ZA</span>
+                            <span class="absolute -bottom-2 -right-2 w-8 h-8 rounded-xl bg-amber-400 text-earth-900 flex items-center justify-center text-xs shadow">
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                        </div>
+
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-desa-100 text-desa-800 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-user-check"></i> Pemuda Desa
+                        </span>
+
+                        <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-earth-900">Zaenal Arifin</h3>
+                        <p class="text-sm font-medium text-desa-700 mt-0.5">Warga Dukuh Ngroto, Desa Ngroto</p>
+                        <p class="text-xs text-earth-500 mt-1">Kaki Gunung Kamulyan • Kec. Reban, Batang</p>
+
+                        <hr class="w-full border-earth-200 my-5">
+
+                        <!-- Tautan Media Sosial -->
+                        <div class="w-full space-y-2.5 text-left">
+                            <p class="text-xs font-bold uppercase tracking-wider text-earth-500 text-center mb-2">Terhubung & Sapa Saya</p>
+                            
+                            <a href="https://wa.me/6282328717060?text=Halo%20Mas%20Zaenal%20Arifin,%20saya%20ingin%20berbagi%20informasi%20kegiatan/UMKM%20Desa%20Ngroto." 
+                               target="_blank" rel="noopener noreferrer"
+                               class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition">
+                                <span class="flex items-center gap-2.5">
+                                    <i class="fa-brands fa-whatsapp text-base"></i>
+                                    <span>0823-2871-7060</span>
+                                </span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+                            </a>
+
+                            <a href="https://www.instagram.com/zaenal_arifin.19" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-earth-50 hover:bg-pink-50 text-earth-800 hover:text-pink-700 border border-earth-200 hover:border-pink-200 text-xs sm:text-sm font-medium transition">
+                                <span class="flex items-center gap-2.5">
+                                    <i class="fa-brands fa-instagram text-base text-pink-600"></i>
+                                    <span>@zaenal_arifin.19</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right text-xs text-earth-400"></i>
+                            </a>
+
+                            <a href="https://www.tiktok.com/@fienza_" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-earth-50 hover:bg-stone-100 text-earth-800 border border-earth-200 text-xs sm:text-sm font-medium transition">
+                                <span class="flex items-center gap-2.5">
+                                    <i class="fa-brands fa-tiktok text-base text-earth-900"></i>
+                                    <span>@fienza_</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right text-xs text-earth-400"></i>
+                            </a>
+
+                            <a href="https://www.facebook.com/search/top?q=Zaenal%20Arifin" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-earth-50 hover:bg-blue-50 text-earth-800 hover:text-blue-700 border border-earth-200 hover:border-blue-200 text-xs sm:text-sm font-medium transition">
+                                <span class="flex items-center gap-2.5">
+                                    <i class="fa-brands fa-facebook text-base text-blue-600"></i>
+                                    <span>Zaenal Arifin</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-right text-xs text-earth-400"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Kata Perkenalan & Latar Belakang Pembuatan Website -->
+                    <div class="lg:col-span-8 space-y-5">
+                        <div>
+                            <span class="text-desa-700 font-bold text-xs sm:text-sm uppercase tracking-wider">Inisiator & Pembuat Website</span>
+                            <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-earth-900 mt-1.5 leading-snug">
+                                Dari Pemuda Desa, untuk Memperkenalkan Pesona Desa Ngroto
+                            </h2>
+                        </div>
+
+                        <div class="relative bg-white/90 rounded-2xl p-5 sm:p-6 border-l-4 border-desa-600 shadow-sm space-y-3.5 text-earth-700 text-sm sm:text-base leading-relaxed">
+                            <p>
+                                <em>"Assalamu’alaikum Warahmatullahi Wabarakatuh, salam hangat untuk seluruh warga Desa Ngroto dan para pengunjung sekalian."</em>
+                            </p>
+                            <p>
+                                Perkenalkan, saya <strong>Zaenal Arifin</strong>, masyarakat biasa dan pemuda desa yang lahir serta tumbuh besar di <strong>Dukuh Ngroto</strong>. Saya membuat website ini berangkat dari inisiatif pribadi dan rasa bangga terhadap kampung halaman kita di kaki Gunung Kamulyan ini.
+                            </p>
+                            <p>
+                                Desa Ngroto punya begitu banyak kekayaan yang layak dikenal masyarakat luas—mulai dari hasil perkebunan <strong>tembakau, kopi, teh, dan cabai</strong> yang melimpah, keindahan wisata alam di ketinggian ±915 MDPL, warisan kesenian yang terus dijaga, kegiatan guyub rukun warga di <strong>Dukuh Ampelgading, Dukuh Ngroto, dan Dukuh Gerjo</strong>, hingga produk-produk <strong>UMKM lokal</strong> buatan warga. Harapan saya, ruang digital ini bisa menjadi etalase bersama untuk mengangkat nama baik dan potensi Desa Ngroto ke luar daerah.
+                            </p>
+                        </div>
+
+                        <!-- Ajakan Kolaborasi Warga -->
+                        <div class="bg-amber-50/90 border border-amber-200/90 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-400/30 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-sm text-earth-900">Punya Info Kegiatan, Wisata, atau Produk UMKM?</h4>
+                                    <p class="text-xs text-earth-700 mt-0.5">
+                                        Warga di 4 RW / 14 RT dipersilakan menghubungi saya jika ingin menampilkan produk UMKM, hasil kebun, jadwal pentas seni, atau kegiatan dukuh di etalase desa ini.
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/6282328717060?text=Halo%20Mas%20Zaenal,%20saya%20warga%20Desa%20Ngroto%20ingin%20menitipkan%20info%20kegiatan/UMKM%20desa." 
+                               target="_blank" rel="noopener noreferrer"
+                               class="shrink-0 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-desa-700 hover:bg-desa-800 text-white text-xs font-bold shadow-sm transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Kirim Info via WA</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-earth-900 text-earth-300 border-t border-earth-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-earth-800">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-3">
+                        <div class="w-9 h-9 rounded-lg bg-desa-700 flex items-center justify-center">
+                            <i class="fa-solid fa-mountain-sun"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-lg">PESONA DESA NGROTO</span>
+                    </div>
+                    <p class="text-sm text-earth-400 leading-relaxed">
+                        Etalase digital potensi perkebunan (tembakau, kopi, teh, cabai), pertanian, wisata alam kaki Gunung Kamulyan (±915 MDPL), budaya, dan UMKM lokal Desa Ngroto, Kec. Reban, Kab. Batang, Jawa Tengah 51273.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-3">Jelajahi Halaman</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#tentang" class="hover:text-white transition">Tentang Desa Ngroto</a></li>
+                        <li><a href="#potensi" class="hover:text-white transition">Perkebunan, Pertanian, Wisata & Seni</a></li>
+                        <li><a href="#umkm" class="hover:text-white transition">Etalase UMKM & Produk Lokal</a></li>
+                        <li><a href="#kegiatan" class="hover:text-white transition">Kegiatan & Agenda Masyarakat</a></li>
+                        <li><a href="#inisiator" class="hover:text-white transition">Inisiator Website (Zaenal Arifin)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-3">Wilayah Dukuh (4 RW • 14 RT)</h4>
+                    <ul class="space-y-2 text-sm text-earth-400">
+                        <li><i class="fa-solid fa-angle-right text-desa-500 mr-2"></i>Dukuh Ampelgading</li>
+                        <li><i class="fa-solid fa-angle-right text-desa-500 mr-2"></i>Dukuh Ngroto</li>
+                        <li><i class="fa-solid fa-angle-right text-desa-500 mr-2"></i>Dukuh Gerjo</li>
+                        <li class="pt-1 text-xs text-amber-400/90"><i class="fa-solid fa-mountain mr-1.5"></i>Kaki Gunung Kamulyan (±915 MDPL)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-earth-400 gap-2">
+                <p>&copy; <span id="tahun-sekarang"></span> Pesona Desa Ngroto • Kaki Gunung Kamulyan, Reban, Batang 51273.</p>
+                <p>Diinisiasi oleh <a href="#inisiator" class="text-amber-400 hover:text-amber-300 font-semibold">Zaenal Arifin</a> (Pemuda Dukuh Ngroto)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DETAIL POTENSI DESA -->
+    <div id="potensi-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl fade-in">
+            <div class="relative h-56 bg-desa-900">
+                <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+                <button onclick="tutupModal()" aria-label="Tutup Detail" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <span id="modal-badge" class="absolute bottom-4 left-4 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-amber-400 text-earth-900"></span>
+            </div>
+            <div class="p-6 sm:p-8">
+                <h3 id="modal-title" class="font-heading font-extrabold text-2xl text-earth-900"></h3>
+                <p id="modal-location" class="text-xs font-semibold text-desa-700 mt-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot"></i> <span></span>
+                </p>
+                <p id="modal-desc" class="text-sm text-earth-700 leading-relaxed mt-4"></p>
+                <div class="mt-5 bg-earth-50 rounded-2xl p-4 border border-earth-200">
+                    <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-earth-800 mb-2">Daya Tarik & Keunggulan Utama:</h4>
+                    <ul id="modal-highlights" class="text-sm text-earth-700 space-y-1.5 list-disc list-inside"></ul>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <button onclick="tutupModal()" class="px-5 py-2.5 rounded-xl bg-desa-700 hover:bg-desa-800 text-white text-sm font-semibold transition">
+                        Tutup Informasi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT INTERAKTIF -->
+    <script>
+        // Data Potensi Unggulan Desa Ngroto
+        const dataPotensi = [
+            {
+                id: 1,
+                kategori: 'perkebunan',
+                labelKategori: 'Perkebunan',
+                judul: 'Perkebunan Tembakau, Kopi & Teh',
+                lokasi: 'Kaki Gunung Kamulyan (±915 MDPL), Desa Ngroto',
+                ringkasan: 'Kekayaan komoditas perkebunan dataran tinggi berupa tembakau rakyat unggulan, kopi lereng Gunung Kamulyan, serta perkebunan teh.',
+                deskripsi: 'Berada di kaki Gunung Kamulyan dengan ketinggian ±915 MDPL, kontur dan iklim sejuk Desa Ngroto sangat ideal untuk tanaman perkebunan bernilai tinggi. Tembakau rakyat, kopi lokal, dan perkebunan teh menjadi komoditas kebanggaan warga sekaligus menjaga kehijauan lereng desa.',
+                keunggulan: [
+                    'Tembakau rakyat berkualitas unggulan hasil budidaya petani lereng Reban',
+                    'Biji kopi lokal lereng Gunung Kamulyan dengan cita rasa dan aroma khas',
+                    'Perkebunan teh hijau pegunungan serta komoditas rempah (cengkeh & kapulaga)'
+                ],
+                gambar: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-tree',
+                warnaBadge: 'bg-emerald-100 text-emerald-800'
+            },
+            {
+                id: 2,
+                kategori: 'pertanian',
+                labelKategori: 'Pertanian & Cabai',
+                judul: 'Sentra Cabai, Padi & Sayuran Segar',
+                lokasi: 'Dukuh Ampelgading, Ngroto & Gerjo',
+                ringkasan: 'Hamparan ladang dan sawah subur yang menghasilkan cabai kualitas unggulan, padi, serta aneka sayuran khas pegunungan.',
+                deskripsi: 'Kesuburan tanah vulkanik kaki Gunung Kamulyan dan aliran mata air jernih menjadikan sektor pertanian sebagai penopang utama warga Desa Ngroto. Petani di Dukuh Ampelgading, Ngroto, dan Gerjo membudidayakan cabai merah/rawit serta beragam sayuran segar yang memasok pasar lokal maupun luar daerah.',
+                keunggulan: [
+                    'Sentra budidaya cabai berkualitas tinggi (cabai merah & cabai rawit segar)',
+                    'Sayuran dataran tinggi segar (kol, wortel, daun bawang, kentang)',
+                    'Padi sawah dan palawija (jagung, ketela) dengan pemupukan ramah lingkungan'
+                ],
+                gambar: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-seedling',
+                warnaBadge: 'bg-desa-100 text-desa-800'
+            },
+            {
+                id: 3,
+                kategori: 'wisata',
+                labelKategori: 'Wisata Alam',
+                judul: 'Panorama Kaki Gunung Kamulyan',
+                lokasi: 'Ketinggian ±915 MDPL, Desa Ngroto, Kec. Reban',
+                ringkasan: 'Keindahan bentang alam perbukitan hijau di ketinggian ±915 MDPL, udara pegunungan sejuk, dan rute agrowisata kebun warga.',
+                deskripsi: 'Berada di kaki Gunung Kamulyan (±915 MDPL), Desa Ngroto menyuguhkan suasana pegunungan yang asri dan menenangkan. Pengunjung dapat menikmati pemandangan hamparan kebun teh, kopi, tembakau, udara pagi yang segar, serta wisata edukasi pertanian bersama warga.',
+                keunggulan: [
+                    'Panorama pegunungan kaki Gunung Kamulyan (±915 MDPL) & udara sejuk',
+                    'Agrowisata edukasi petik hasil kebun (kopi, teh, cabai, & sayuran)',
+                    'Jalur jelajah alam pedesaan melintasi Dukuh Ampelgading, Ngroto & Gerjo'
+                ],
+                gambar: 'https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-mountain-sun',
+                warnaBadge: 'bg-sky-100 text-sky-800'
+            },
+            {
+                id: 4,
+                kategori: 'kesenian',
+                labelKategori: 'Budaya & Kesenian',
+                judul: 'Kesenian Tradisional & Budaya Jawa',
+                lokasi: 'Sanggar Seni & Masyarakat (4 RW / 14 RT)',
+                ringkasan: 'Pelestarian seni tradisional Jawa, grup rebana/sholawat, dan tradisi sedekah bumi yang diwariskan lintas generasi.',
+                deskripsi: 'Identitas budaya masyarakat Desa Ngroto tetap hidup melalui berbagai kelompok kesenian warga. Dari generasi tua hingga pemuda desa di seluruh 4 RW / 14 RT aktif berlatih dan tampil dalam perayaan tradisi desa maupun festival seni di Kabupaten Batang.',
+                keunggulan: [
+                    'Kesenian rakyat tradisional Jawa (kuda lumping & tari kreasi)',
+                    'Kelompok seni rebana dan hadroh aktif di setiap dukuh',
+                    'Tradisi sedekah bumi & syukuran panen sebagai perekat warga'
+                ],
+                gambar: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-masks-theater',
+                warnaBadge: 'bg-amber-100 text-amber-800'
+            }
+        ];
+
+        // Data Etalase UMKM & Produk Lokal Desa Ngroto
+        const dataUMKM = [
+            {
+                nama: 'Kopi Bubuk & Daun Teh Asli Ngroto',
+                kategori: 'Perkebunan & Hasil Bumi',
+                asal: 'Dukuh Gerjo & Ngroto (±915 MDPL)',
+                deskripsi: 'Biji kopi dan pucuk daun teh pilihan hasil panen kebun kaki Gunung Kamulyan yang diolah tradisional sehingga menghasilkan aroma dan cita rasa autentik.',
+                gambar: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-mug-hot'
+            },
+            {
+                nama: 'Tembakau Rajangan Pilihan Ngroto',
+                kategori: 'Perkebunan & Hasil Bumi',
+                asal: 'Dukuh Ngroto & Gerjo',
+                deskripsi: 'Hasil panen tembakau rakyat dataran tinggi Reban yang dirajang dan dijemur secara teliti oleh petani lokal untuk menghasilkan kualitas daun terbaik.',
+                gambar: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-leaf'
+            },
+            {
+                nama: 'Paket Cabai & Sayuran Segar Dapur',
+                kategori: 'Perkebunan & Hasil Bumi',
+                asal: 'Dukuh Ampelgading',
+                deskripsi: 'Cabai merah, cabai rawit, dan aneka sayuran petik langsung dari lahan subur warga (kol, wortel, daun bawang) dalam kondisi segar berkualitas.',
+                gambar: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-pepper-hot'
+            },
+            {
+                nama: 'Aneka Keripik & Camilan Hasil Kebun',
+                kategori: 'Kuliner & Olahan',
+                asal: 'Dukuh Ngroto',
+                deskripsi: 'Olahan singkong, pisang, dan talas segar hasil panen warga yang diolah menjadi camilan renyah gurih dan manis tanpa bahan pengawet.',
+                gambar: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-cookie-bite'
+            },
+            {
+                nama: 'Jajanan Pasar & Kuliner Tradisional',
+                kategori: 'Kuliner & Olahan',
+                asal: 'Dukuh Ngroto & Ampelgading',
+                deskripsi: 'Aneka kue tradisional Jawa dan hidangan hajatan buatan ibu-ibu UMKM desa dengan resep turun-temurun yang lezat.',
+                gambar: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-utensils'
+            },
+            {
+                nama: 'Kerajinan Anyaman & Bibit Tanaman',
+                kategori: 'Kerajinan & Jasa',
+                asal: 'Dukuh Gerjo & Ampelgading',
+                deskripsi: 'Produk kerajinan anyaman bambu ramah lingkungan serta penyediaan bibit tanaman kopi, teh, cengkeh, dan buah siap tanam.',
+                gambar: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
+                ikon: 'fa-hands-holding'
+            }
+        ];
+
+        // Data Kegiatan & Agenda Masyarakat
+        const dataKegiatan = [
+            {
+                judul: 'Panen Raya Tembakau, Kopi, Teh & Cabai Bersama Petani',
+                kategori: 'Pertanian & Kebun',
+                tanggal: '04 November 2026',
+                lokasi: 'Lahan Kebun Kaki Gunung Kamulyan',
+                ringkasan: 'Kebersamaan kelompok tani dalam memanen komoditas unggulan tembakau, kopi, teh, dan cabai sekaligus berbagi teknik pengolahan pasca panen.'
+            },
+            {
+                judul: 'Gotong Royong Dusun: Pembersihan Jalur & Saluran Irigasi',
+                kategori: 'Gotong Royong',
+                tanggal: '12 November 2026',
+                lokasi: 'Dukuh Ampelgading, Ngroto & Gerjo (4 RW / 14 RT)',
+                ringkasan: 'Warga bersama pemuda desa bergotong royong merawat saluran air pertanian dan mempercantik jalur hijau di lingkungan dukuh.'
+            },
+            {
+                judul: 'Latihan Gabungan Sanggar Kesenian Tradisional Desa',
+                kategori: 'Budaya & Kesenian',
+                tanggal: '25 Oktober 2026',
+                lokasi: 'Dukuh Ngroto',
+                ringkasan: 'Generasi muda dan seniman senior berlatih bersama mempersiapkan pentas kesenian tradisional Jawa khas Desa Ngroto.'
+            },
+            {
+                judul: 'Pengajian Rutin & Sholawatan Akbar Masyarakat Desa',
+                kategori: 'Keagamaan',
+                tanggal: '20 Oktober 2026',
+                lokasi: 'Masjid Jami & Mushola Dukuh (4 RW / 14 RT)',
+                ringkasan: 'Kegiatan keagamaan rutin warga, majelis taklim, serta lantunan sholawat bersama grup rebana lokal untuk mempererat ukhuwah Islamiyah.'
+            },
+            {
+                judul: 'Jelajah Alam 915 MDPL & Kegiatan Pemuda Desa Ngroto',
+                kategori: 'Pemuda & Wisata',
+                tanggal: '18 Oktober 2026',
+                lokasi: 'Perbatasan Dukuh Ngroto – Gerjo',
+                ringkasan: 'Inisiatif karang taruna dan pemuda desa menanam bibit pohon peneduh serta memasang penunjuk arah spot alam kaki Gunung Kamulyan.'
+            },
+            {
+                judul: 'Kenduri & Syukuran Hasil Bumi Masyarakat Desa',
+                kategori: 'Keagamaan',
+                tanggal: '02 Oktober 2026',
+                lokasi: 'Dukuh Ampelgading, Ngroto & Gerjo',
+                ringkasan: 'Tradisi doa bersama dan tasyakuran warga sebagai wujud rasa syukur kepada Tuhan atas melimpahnya hasil panen kebun dan ladang.'
+            }
+        ];
+
+        // Render Kartu Potensi
+// ... existing code ... -->
